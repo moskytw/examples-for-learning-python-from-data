@@ -1,0 +1,5 @@
+*.pyc
+
+/csv/school_list.csv
+/html/cache
+/sql/schools.db
