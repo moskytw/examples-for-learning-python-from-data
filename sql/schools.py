@@ -8,7 +8,9 @@ import sqlite3
 def _perform(db_path, executer):
 
     conn = sqlite3.connect(db_path)
-    conn.text_factory = str # use 8-bit string
+    # Let SQLite accept 8-bit string.
+    # After add it, it is more convenient for saving the csv data into db.
+    conn.text_factory = str
     cur = conn.cursor()
 
     try:
