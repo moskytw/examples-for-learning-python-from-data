@@ -5,7 +5,7 @@ import sys
 import csv
 import sqlite3
 
-def _perform(db_path, executer):
+def perform_executer(db_path, executer):
 
     conn = sqlite3.connect(db_path)
     # Let SQLite accept 8-bit string.
@@ -25,10 +25,16 @@ def _perform(db_path, executer):
     conn.close()
 
 def perform(db_path, *args, **kargs):
-    _perform(db_path, lambda cur: cur.execute(*args, **kargs))
+    perform_executer(
+        db_path,
+        lambda cur: cur.execute(*args, **kargs)
+    )
 
-def perform_many(db_path, *args, **kargs):
-    _perform(db_path, lambda cur: cur.executemany(*args, **kargs))
+def perform_multiple(db_path, *args, **kargs):
+    perform_executer(
+        db_path,
+        lambda cur: cur.executemany(*args, **kargs)
+    )
 
 def drop_table(db_path='schools.db'):
     perform(db_path, 'DROP TABLE schools')
@@ -48,7 +54,7 @@ CREATE TABLE schools (
 def load_csv(csv_path='schools.csv', db_path='schools.db'):
     with open(csv_path) as f:
         rows = list(csv.reader(f))[3:-2]
-        perform_many(db_path, 'INSERT INTO schools VALUES (?, ?, ?, ?, ?, ?, ?)', rows)
+        perform_multiple(db_path, 'INSERT INTO schools VALUES (?, ?, ?, ?, ?, ?, ?)', rows)
 
 if __name__ == '__main__':
     import clime.now
