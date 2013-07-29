@@ -42,13 +42,13 @@ def drop_table(db_path='schools.db'):
 def create_table(db_path='schools.db'):
     perform(db_path, '''\
 CREATE TABLE schools (
-        id      TEXT PRIMARY KEY NOT NULL,
-        name    TEXT NOT NULL,
-        county  TEXT NOT NULL,
-        address TEXT NOT NULL,
-        phone   TEXT NOT NULL,
-        url     TEXT NOT NULL,
-        type    TEXT NOT NULL
+        id      TEXT PRIMARY KEY,
+        name    TEXT,
+        county  TEXT,
+        address TEXT,
+        phone   TEXT,
+        url     TEXT,
+        type    TEXT
 )''')
 
 def load_csv(csv_path='schools.csv', db_path='schools.db'):
