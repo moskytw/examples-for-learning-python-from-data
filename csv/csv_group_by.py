@@ -16,7 +16,7 @@ def save(url, path=None):
 
 def parse_school_csv(path):
 
-    with open(save_path) as f:
+    with open(path) as f:
         next(f)
         next(f)
         school_list = [school for school in csv.DictReader(f)][:-2]
