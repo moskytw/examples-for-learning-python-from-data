@@ -55,7 +55,6 @@ def search_urls(url):
                 if not url_state_map.get(found_url, NEW):
                     url_queue.append(found_url)
                     url_state_map[found_url] = QUEUED
-
             url_state_map[url] = VISITED
 
 if __name__ == '__main__':
