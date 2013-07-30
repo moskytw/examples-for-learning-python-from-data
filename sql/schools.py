@@ -53,7 +53,7 @@ CREATE TABLE schools (
 def load_csv(csv_path='schools.csv', db_path='schools.db'):
     with open(csv_path) as f:
         rows = list(csv.reader(f))[3:-2]
-        perform_multiple(db_path, 'INSERT INTO schools VALUES (?, ?, ?, ?, ?, ?, ?)', rows)
+    perform_multiple(db_path, 'INSERT INTO schools VALUES (?, ?, ?, ?, ?, ?, ?)', rows)
 
 if __name__ == '__main__':
     import clime.now
