@@ -18,7 +18,8 @@ if __name__ == '__main__':
 
     from os.path import exists
 
-    url = 'http://stats.moe.gov.tw/files/school/101/u1_new.csv'
+    #url = 'http://stats.moe.gov.tw/files/school/101/u1_new.csv'
+    url = 'https://raw.github.com/moskytw/learning-python-from-data-examples/master/sql/schools.csv'
     save_path = 'school_list.csv'
 
     if not exists(save_path):
