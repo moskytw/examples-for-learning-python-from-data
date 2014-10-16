@@ -9,12 +9,12 @@ from hashlib import md5
 from lxml import etree
 import requests
 
-def get(url, cache_dir='cache/'):
+def get(url, cache_dir_path='cache/'):
 
-    if not exists(cache_dir):
-        makedirs(cache_dir)
+    if not exists(cache_dir_path):
+        makedirs(cache_dir_path)
 
-    cache_path = join(cache_dir, md5(url).hexdigest())
+    cache_path = join(cache_dir_path, md5(url).hexdigest())
     if exists(cache_path):
         with open(cache_path) as f:
             text = f.read().decode('utf-8')
