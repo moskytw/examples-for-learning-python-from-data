@@ -14,7 +14,7 @@ def save(url, path=None):
     with open(path, 'w') as f:
          f.write(requests.get(url).text.encode('utf-8'))
 
-def parse_school_list_csv(path):
+def parse_to_school_list(path):
 
     with open(path) as f:
         next(f)
@@ -35,4 +35,4 @@ if __name__ == '__main__':
     if not exists(save_path):
         save(url, save_path)
 
-    pprint(parse_school_list_csv(save_path))
+    pprint(parse_to_school_list(save_path))

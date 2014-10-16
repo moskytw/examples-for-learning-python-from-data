@@ -17,7 +17,7 @@ def save(url, path=None):
     with open(path, 'w') as f:
          f.write(requests.get(url).text.encode('utf-8'))
 
-def parse_school_list_csv(path):
+def parse_to_school_list(path):
     '''It parses `path` in schools csv format.'''
 
     with open(path) as f:
