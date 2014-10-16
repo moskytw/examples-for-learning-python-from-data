@@ -44,7 +44,7 @@ def search_urls(url):
         yield url
 
         try:
-            found_url_list = find_urls(get(url))
+            found_urls = find_urls(get(url))
         except Exception, e:
             url_state_map[url] = e
             print 'Exception: %s' % e
@@ -52,7 +52,7 @@ def search_urls(url):
             print url_state_map
             return
         else:
-            for found_url in found_url_list:
+            for found_url in found_urls:
                 if not url_state_map.get(found_url, NEW):
                     url_queue.append(found_url)
                     url_state_map[found_url] = QUEUED
