@@ -4,8 +4,8 @@
 import requests
 from lxml import etree
 
-text = requests.get('http://clbc.tw').text
+content = requests.get('http://clbc.tw').content
 
-tree = etree.HTML(text)
+tree = etree.HTML(content)
 
 print tree

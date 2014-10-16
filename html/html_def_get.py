@@ -15,13 +15,13 @@ def get(url, cache_dir_path='cache/'):
     cache_path = join(cache_dir_path, md5(url).hexdigest())
     if exists(cache_path):
         with open(cache_path) as f:
-            text = f.read().decode('utf-8')
-        return text
+            content = f.read().decode('utf-8')
+        return content
     else:
-        text = requests.get(url).text
+        content = requests.get(url).content
         with open(cache_path, 'w') as f:
-            f.write(text.encode('utf-8'))
-        return text
+            f.write(content)
+        return content
 
 if __name__ == '__main__':
     print get('http://clbc.tw')

@@ -12,7 +12,7 @@ def save(url, path=None):
         path = basename(url)
 
     with open(path, 'w') as f:
-         f.write(requests.get(url).text.encode('utf-8'))
+         f.write(requests.get(url).content)
 
 if __name__ == '__main__':
 

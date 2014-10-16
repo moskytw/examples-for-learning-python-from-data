@@ -10,13 +10,13 @@ cache_path = 'cache.html'
 
 if exists(cache_path):
     with open(cache_path) as f:
-        text = f.read().decode('utf-8')
+        content = f.read().decode('utf-8')
 else:
-    text = requests.get('http://clbc.tw').text
-    print type(text)
+    content = requests.get('http://clbc.tw').content
+    print type(content)
     with open(cache_path, 'w') as f:
-        f.write(text.encode('utf-8'))
+        f.write(content)
 
-tree = etree.HTML(text)
+tree = etree.HTML(content)
 
 print tree
