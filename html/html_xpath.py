@@ -17,14 +17,14 @@ else:
     with open(cache_path, 'w') as f:
         f.write(content)
 
-tree = etree.HTML(content)
+root = etree.HTML(content)
 
-titles = tree.xpath('/html/head/title')
+titles = root.xpath('/html/head/title')
 print titles[0].text
 
-title_texts = tree.xpath('/html/head/title/text()')
+title_texts = root.xpath('/html/head/title/text()')
 print title_texts[0]
 
-as_ = tree.xpath('//a')
+as_ = root.xpath('//a')
 print as_
 print [a.get('href') for a in as_]

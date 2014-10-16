@@ -17,6 +17,6 @@ else:
     with open(cache_path, 'w') as f:
         f.write(content)
 
-tree = etree.HTML(content)
+root = etree.HTML(content)
 
-print tree
+print root

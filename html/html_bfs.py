@@ -26,8 +26,8 @@ def get(url, cache_dir_path='cache/'):
         return content
 
 def find_urls(source_code):
-    tree = etree.HTML(source_code)
-    return [a.attrib['href'] for a in tree.xpath('//a') if 'href' in a.attrib]
+    root = etree.HTML(source_code)
+    return [a.attrib['href'] for a in root.xpath('//a') if 'href' in a.attrib]
 
 NEW     = 0
 QUEUED  = 1

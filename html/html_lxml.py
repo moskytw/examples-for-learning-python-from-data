@@ -6,6 +6,6 @@ from lxml import etree
 
 content = requests.get('http://clbc.tw').content
 
-tree = etree.HTML(content)
+root = etree.HTML(content)
 
-print tree
+print root
